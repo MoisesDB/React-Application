@@ -1,0 +1,47 @@
+.container {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    margin-top: 15px;
+
+    @media (max-width: 375px) {
+        width: 300px;
+    }
+
+    .list-followers-container {
+        height: 350px;
+        width: 100%;
+        padding: 10px;
+        overflow-y: scroll;
+        .followers {
+            width: 100%;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .avatar-container {
+                position: relative;
+                width: 40px;
+            }
+
+            .name-container {
+                position: relative;
+                text-align: center;
+                width: 100%;
+                overflow: hidden;
+
+                h2 {
+                    font-size: 15px;
+                    color: #444;
+                }
+            }
+        }
+    }
+}
