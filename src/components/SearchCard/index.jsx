@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import GithubLogin from "react-github-login";
 import { FiSearch } from "react-icons/fi";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import client from "../../services/client";
 import { context } from "../../context";
 import { useHistory } from "react-router-dom";
@@ -24,7 +23,7 @@ const SearchCard = () => {
 
   async function getToken(code) {
     try {
-      const response = await client.post(`/token/${code}`);
+      const response = await client.post(`http://localhost:3333/token/${code}`);
 
       const token = response.data.response.slice(13, 53);
 
@@ -116,6 +115,7 @@ const SearchCard = () => {
       console.log(ctx.userLogged);
       getUserLogged();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   async function getUserData(route) {
