@@ -1,34 +1,40 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {
-    Container,
-    NumberContainer,
-    NumberFollowers,
-    TextNumbers,
-} from "./styles";
+import "./styles.scss";
 
 const UserNumbers = (props) => {
-    const history = useHistory();
-    const handleOnClick = (route) => history.push(route);
+  const history = useHistory();
+  const handleOnClick = (route) => history.push(route);
 
-    return (
-        <Container>
-            <NumberContainer onClick={() => handleOnClick("/repos")}>
-                <NumberFollowers>{props.repos}</NumberFollowers>
-                <TextNumbers>Repositórios</TextNumbers>
-            </NumberContainer>
-            <NumberContainer onClick={() => handleOnClick("/followers")}>
-                <NumberFollowers>{props.followers}</NumberFollowers>
-                <TextNumbers>Seguidores</TextNumbers>
-            </NumberContainer>
-            <NumberContainer>
-                <NumberFollowers onClick={() => handleOnClick("/following")}>
-                    {props.following}
-                </NumberFollowers>
-                <TextNumbers>Seguindo</TextNumbers>
-            </NumberContainer>
-        </Container>
-    );
+  return (
+    <div className="section-numbers">
+      <div className="number-container" onClick={() => handleOnClick("/repos")}>
+        <h2 className="number">{props.repos}</h2>
+        <div className="text-number">Repositórios</div>
+      </div>
+      <div
+        className="number-container"
+        onClick={() => handleOnClick("/starred")}
+      >
+        <h2 className="number">{props.starred}</h2>
+        <div className="text-number">Starred</div>
+      </div>
+      <div
+        className="number-container"
+        onClick={() => handleOnClick("/followers")}
+      >
+        <h2 className="number">{props.followers}</h2>
+        <div className="text-number">Seguidores</div>
+      </div>
+      <div
+        className="number-container"
+        onClick={() => handleOnClick("/following")}
+      >
+        <h2 className="number">{props.following}</h2>
+        <div className="text-number">Seguindo</div>
+      </div>
+    </div>
+  );
 };
 
 export default UserNumbers;

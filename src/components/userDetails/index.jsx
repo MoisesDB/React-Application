@@ -1,13 +1,13 @@
-import { Container, Name, Username, Description } from "./styles";
+import "./styles.scss";
 
 const UserDetails = (props) => {
-    return (
-        <Container>
-            <Name>{props.name}</Name>
-            <Username>{props.login}</Username>
-            <Description>{props?.description}</Description>
-        </Container>
-    );
+  return (
+    <div className="details-container">
+      <h1>{props.name}</h1>
+      <h2>{props.login}</h2>
+      <p>{props?.description}</p>
+    </div>
+  );
 };
 
 export default UserDetails;

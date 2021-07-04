@@ -1,34 +1,25 @@
 import React, { useContext } from "react";
-import {
-    Section,
-    Title,
-    ListOfReposContainer,
-    Repo,
-    Name,
-    Description,
-} from "./styles";
+
+import "./styles.scss";
 import { context } from "../../context";
 
 const ReposContainer = () => {
-    const ctx = useContext(context);
-    const arrayRepos = ctx.repos;
-    arrayRepos.map((m) => console.log(m.name));
+  const ctx = useContext(context);
+  const arrayRepos = ctx.repos;
 
-    return (
-        <Section>
-            <Title>Repositórios de {ctx.userData.name?.split(" ")[0]}</Title>
-            <ListOfReposContainer>
-                {arrayRepos.map((repo) => (
-                    <Repo
-                        key={repo?.id}
-                    >
-                        <Name>{repo?.name}</Name>
-                        <Description>{repo?.description}</Description>
-                    </Repo>
-                ))}
-            </ListOfReposContainer>
-        </Section>
-    );
+  return (
+    <section className="section-repos">
+      <h1>Repositórios de {ctx.userData.name?.split(" ")[0]}</h1>
+      <div className="list-repos-container">
+        {arrayRepos.map((repo) => (
+          <div className="repos" key={repo?.id}>
+            <h2>{repo?.name}</h2>
+            <p>{repo?.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default ReposContainer;

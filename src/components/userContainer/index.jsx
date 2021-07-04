@@ -1,11 +1,7 @@
-import {
-    Section
-} from './styles';
+import "./styles.scss";
 
-const UserContainer = props => (
-    <Section>
-        {props.children}
-    </Section>
+const UserContainer = (props) => (
+  <section className="section-user">{props.children}</section>
 );
 
 export default UserContainer;

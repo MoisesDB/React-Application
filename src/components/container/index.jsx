@@ -1,9 +1,7 @@
-import { Container } from './styles';
+import "./styles.scss";
 
-const MainContainer = props => (
-    <Container>
-        {props.children}
-    </Container>
+const MainContainer = (props) => (
+  <main className="container">{props.children}</main>
 );
 
 export default MainContainer;
